@@ -101,7 +101,7 @@ export default function Dashboard() {
         </div>
 
         {products.length === 0 && (
-          <p className="text-slate-400 text-sm text-center mt-10">Koi product nahi — upar se add karo.</p>
+          <p className="text-slate-400 text-sm text-center mt-10">No product available-please add from above</p>
         )}
 
         <div className="mt-14">
