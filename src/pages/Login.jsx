@@ -11,7 +11,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    API.post("/analytics/visit", { page: "login" }).catch(() => {});
+    API.post("/api/analytics/visit", { page: "login" }).catch(() => {});
   }, []);
 
   const handleSubmit = async (e) => {

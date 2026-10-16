@@ -40,18 +40,18 @@ export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
 
   const loadBlogs = async () => {
-    const res = await API.get("/blogs");
+    const res = await API.get("/api/blogs");
     setBlogs(res.data);
   };
 
   useEffect(() => {
-    API.post("/analytics/visit", { page: "blogs" }).catch(() => {});
+    API.post("/api/analytics/visit", { page: "blogs" }).catch(() => {});
     loadBlogs();
   }, []);
 
   const handleLike = async (id) => {
     if (id.toString().startsWith("feature-")) return;
-    await API.put(`/blogs/${id}/like`);
+    await API.put(`/api/blogs/${id}/like`);
     loadBlogs();
   };
 

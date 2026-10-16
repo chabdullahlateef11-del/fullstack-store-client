@@ -11,16 +11,16 @@ export default function Signup() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    API.post("/analytics/visit", { page: "signup" }).catch(() => {});
+    API.post("/api/analytics/visit", { page: "signup" }).catch(() => {});
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await API.post("/users/signup", form);
+      const res = await API.post("/api/users/signup", form);
      localStorage.setItem("token", res.data.token);
      localStorage.setItem("userName", res.data.user.name);
-     navigate("/dashboard");
+     navigate("/api/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
     }

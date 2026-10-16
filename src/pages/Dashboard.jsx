@@ -8,22 +8,22 @@ export default function Dashboard() {
   const [editId, setEditId] = useState(null);
 
   const loadProducts = async () => {
-    const res = await API.get("/products");
+    const res = await API.get("/api/products");
     setProducts(res.data);
   };
 
   useEffect(() => {
-    API.post("/analytics/visit", { page: "dashboard" }).catch(() => {});
+    API.post("/api/analytics/visit", { page: "dashboard" }).catch(() => {});
     loadProducts();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (editId) {
-      await API.put(`/products/${editId}`, form);
+      await API.put(`/api/products/${editId}`, form);
       setEditId(null);
     } else {
-      await API.post("/products", form);
+      await API.post("/api/products", form);
     }
     setForm({ name: "", price: "", description: "", imageUrl: "" });
     loadProducts();
@@ -35,7 +35,7 @@ export default function Dashboard() {
   };
 
   const handleDelete = async (id) => {
-    await API.delete(`/products/${id}`);
+    await API.delete(`/api/products/${id}`);
     loadProducts();
   };
 
