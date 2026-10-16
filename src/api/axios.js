@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://fullstack-store-server-production.up.railway.app/api" });
+const API = axios.create({ baseURL: "https://fullstack-store-server-production-e77f.up.railway.app" });
 
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
